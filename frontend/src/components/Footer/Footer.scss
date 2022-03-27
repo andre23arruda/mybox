@@ -1,0 +1,10 @@
+.page-footer {
+    margin: 25px 10px;
+    color: #b2b2b2;
+    text-align: center;
+
+    @media(max-width: 600px) {
+        margin: 0 auto;
+        max-width: 200px;
+    }
+}

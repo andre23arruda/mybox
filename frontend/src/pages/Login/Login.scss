@@ -1,0 +1,115 @@
+.login-page {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: space-evenly;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 50px 50px;
+        width: 60%;
+        background-color: #fff;
+        border-radius: 5px;
+        // transform: translate(0px, 20%);
+        // margin-top: 100px;
+
+        .logo {
+            width: 50%;
+            max-width: 300px;
+            display: block;
+            margin: 20px auto 50px;
+        }
+
+        input {
+            font-size: 12pt;
+
+            &::placeholder {
+                opacity: 0.4;
+            }
+        }
+
+        input, button {
+            padding: 15px;
+            margin: 5px;
+            border: 1px solid rgb(233, 233, 233);
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #7259c1;
+            color: #fff;
+            font-weight: bold;
+            transition: 0.2s;
+            font-size: 15pt;
+
+            &:hover {
+                cursor: pointer;
+                filter: brightness(0.9);
+            }
+        }
+
+        .link {
+            display: block;
+            margin-left: auto;
+            padding: 5px 10px;
+            text-decoration: none;
+            transition: 0.2s;
+
+            &:hover {
+                filter: brightness(0.8);
+                transform: translate(0px, -5%);
+            }
+        }
+
+        .divider {
+            margin: 40px 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            hr {
+                border: none;
+                border-bottom: 2px solid #f8f8f8;
+                width: 40%;
+            }
+
+            b {
+                color: #c2c2c2
+            }
+        }
+
+        .oauth-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        @media(max-width: 600px) {
+            padding: 30px;
+            width: 95%;
+            // transform: translate(0px, 10%);
+
+            .logo {
+                width: 80%;
+            }
+
+            .link {
+                margin-right: auto;
+            }
+
+            .oauth-container button {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    @media(max-width: 600px) {
+        width: 90%;
+    }
+}
