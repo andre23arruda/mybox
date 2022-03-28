@@ -114,7 +114,15 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 # api configuration
 REST_FRAMEWORK = {
-    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning',
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '1000/day'
+    }
 }
 
 # CORS

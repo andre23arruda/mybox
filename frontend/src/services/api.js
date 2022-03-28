@@ -1,6 +1,3 @@
-import axios from 'axios'
-
-
 const BASE_URL = process.env.REACT_APP_API_URL
 
 
@@ -24,27 +21,19 @@ async function getApi(route, auth='') {
 }
 
 
-async function deleteApi(route, formData, token='') {
-    let response_status = 400
+async function deleteApi(route, token='') {
     return fetch(
         BASE_URL + route,
         {
             credentials: 'same-origin',
             method: 'DELETE',
-            body: JSON.stringify(formData),
             headers: new Headers({
                 'Authorization': token,
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
             })
         }
     )
     .then(response => {
-        response_status = response.status
-        return response.json()
-    })
-    .then(data => {
-        return {data, response_status}
+        return { response_status: response.status }
     })
 }
 
@@ -105,11 +94,6 @@ async function googleLogin(accesstoken) {
     return data
 }
 
-const axiosRequest = axios.create({
-	baseURL: BASE_URL,
-})
-
-
 
 export {
     getApi,
@@ -117,5 +101,4 @@ export {
     postApi,
     postFormDataApi,
     googleLogin,
-    axiosRequest
 }

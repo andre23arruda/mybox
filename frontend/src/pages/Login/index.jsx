@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-import { Link } from 'react-router-dom'
 
 // utils
 import { googleLogin, postApi } from '../../services/api'
@@ -27,8 +26,10 @@ function Login() {
     async function responseGoogle(response) {
         const data = await googleLogin(response.accessToken)
         if (data.key) {
-            localStorage.setItem('token', data.key)
+            localStorage.setItem('token', `Token ${ data.key }`)
             history.push('/my-files')
+        } else {
+            alert(`Erro no login. Tente novamente`)
         }
     }
 
@@ -59,7 +60,7 @@ function Login() {
                 <img
                     className="logo"
                     src={ logo }
-                    alt="Rocketbox"
+                    alt="Mybox"
                 />
 
                 <input
@@ -82,7 +83,7 @@ function Login() {
                 >
                     Entrar
                 </button>
-{/*
+
                 <span className="divider">
                     <hr />
                     <b>OR</b>
@@ -96,7 +97,7 @@ function Login() {
                         onSuccess={ responseGoogle }
                         onFailure={ responseGoogle }
                     />
-                </div> */}
+                </div>
             </form>
 
             <Footer />

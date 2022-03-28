@@ -21,10 +21,15 @@
             margin-right: 20px;
         }
 
+        strong {
+            width: 20vw;
+        }
+
         &:hover {
             transform: translateY(-2px);
         }
     }
+
 
     .trash {
         height: 20px;
@@ -36,14 +41,21 @@
         }
     }
 
-
-
     @media(max-width: 600px) {
-        margin: 10px 0;
-        width: 100%;
+        padding: 20px 10px;
 
-        .post-img {
-            width: 100%;
+        strong {
+            font-size: 0.8rem;
         }
+
+        span {
+            display: none;
+        }
+        // margin: 10px 0;
+        // width: 100%;
+
+        // .post-img {
+        //     width: 100%;
+        // }
     }
 }
