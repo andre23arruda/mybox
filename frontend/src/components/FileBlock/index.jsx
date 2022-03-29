@@ -21,7 +21,8 @@ function FileBlock({ file, deleteFile }) {
     return (
         <li className="file-block">
             <a
-                href={ file.file }
+                // href={ file.file }
+                href={`${ process.env.REACT_APP_API_URL }mybox/files/${ file.id }/download/` }
                 target="_blank"
                 rel="noopener noreferrer"
             >

@@ -52,9 +52,9 @@ function Main() {
         files.forEach(file => {
             data.append('files', file)
         })
-        for (var value of data.values()) {
-            console.log(value)
-        }
+        // for (var value of data.values()) {
+        //     console.log(value)
+        // }
 
         axios.request({
             method: 'post',
