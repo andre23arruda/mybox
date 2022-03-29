@@ -37,7 +37,7 @@ function Main() {
             history.push('/login')
             return
         }
-        console.log(data)
+        // console.log(data)
         setFiles(data)
         setToken(token)
     }
@@ -47,7 +47,7 @@ function Main() {
     }, [history])
 
     function handleUpload(files) {
-        console.log(files)
+        // console.log(files)
         const data = new FormData()
         files.forEach(file => {
             data.append('files', file)
@@ -62,18 +62,18 @@ function Main() {
             data: data,
             headers: { 'Authorization': authToken },
             onUploadProgress: (p) => {
-                console.log(p.loaded / p.total)
+                // console.log(p.loaded / p.total)
                 setCompleted(100 * p.loaded / p.total)
             }
         }).then (data => {
-            console.log('deu bom')
+            // console.log('deu bom')
             alert(`Upload dos arquivos realizados com sucesso`)
             setCompleted(0)
             loadFilesList()
         })
     }
 
-    async function deleFile(file) {
+    async function deleteFile(file) {
         const { response_status } = await deleteApi(`mybox/files/${ file.id }/`, authToken)
         if (response_status >= 400) {
             history.push('/login')
@@ -118,7 +118,7 @@ function Main() {
                 { files.map(file => (
                     <FileBlock
                         file={ file }
-                        deleFile={ deleFile }
+                        deleteFile={ deleteFile }
                         key={ file.id }
                     />
                 ))}

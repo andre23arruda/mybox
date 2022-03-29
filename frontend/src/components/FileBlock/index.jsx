@@ -11,11 +11,11 @@ import { getDateFormatJSON, getFileNameFromURL } from '../../utils'
 
 
 
-function FileBlock({ file, deleFile }) {
+function FileBlock({ file, deleteFile }) {
 
-    function deleteFile(file) {
-        console.log('File Deleted!!')
-        deleFile(file)
+    function handleDeleteFile(file) {
+        // console.log('File Deleted!!')
+        deleteFile(file)
     }
 
     return (
@@ -36,7 +36,7 @@ function FileBlock({ file, deleFile }) {
                 className="trash"
                 src={ trashIcon }
                 alt="Trash icon"
-                onClick={ e => deleteFile(file) }
+                onClick={ e => handleDeleteFile(file) }
             />
         </li>
     )
