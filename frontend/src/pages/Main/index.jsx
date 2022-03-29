@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import React, {useCallback, useEffect, useState} from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 // components
@@ -26,25 +26,28 @@ function Main() {
     const [completed, setCompleted] = useState(0)
     const [authToken, setToken] = useState('')
 
-    async function loadFilesList() {
+    const loadFilesList = useCallback(() => {
         const token = localStorage.getItem('token')
         if (!token){
             history.push('/login')
             return
         }
-        const { data, response_status } = await getApi(`mybox/files/`, token)
-        if (response_status >= 400) {
-            history.push('/login')
-            return
-        }
-        // console.log(data)
-        setFiles(data)
+        getApi(`mybox/files/`, token)
+        .then(({data, response_status}) => {
+            if (response_status >= 400) {
+                localStorage.setItem('token', '')
+                history.push('/login')
+                return
+            }
+            console.log(data)
+            setFiles(data)
+        })
         setToken(token)
-    }
+    }, [history])
 
     useEffect(() => {
         loadFilesList()
-    }, [history])
+    }, [loadFilesList])
 
     function handleUpload(files) {
         // console.log(files)
@@ -68,6 +71,10 @@ function Main() {
         }).then (data => {
             // console.log('deu bom')
             alert(`Upload dos arquivos realizados com sucesso`)
+            setCompleted(0)
+            loadFilesList()
+        }).catch(error => {
+            alert('Erro ao fazer upload!!')
             setCompleted(0)
             loadFilesList()
         })

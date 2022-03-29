@@ -12,6 +12,11 @@ from .models import FileModel
 from .serializers import FileSerializer, UserSerializer
 
 
+def file_extension(file_name: str):
+    '''Retorna extensão do arquivo'''
+    return '.' + file_name.split('.')[-1]
+
+
 class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -49,6 +54,7 @@ class FilesViewSet(viewsets.ModelViewSet):
         for file in files_data:
             FileModel.objects.create(
                 file=file,
+                extension=file_extension(file.name),
                 user=user
             )
         return Response({'message': 'Files uploaded!!'})

@@ -11,6 +11,7 @@ class FileModel(models.Model):
         upload_to='uploads/omnistack6/%Y/%m/%d/',
         verbose_name=_('File'),
     )
+    extension = models.CharField(max_length=10, blank=True, verbose_name=_('File extension'))
     user = models.ForeignKey(User, related_name='user_files', on_delete=models.CASCADE, verbose_name=_('User'))
 
     class Meta:

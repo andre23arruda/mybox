@@ -3,14 +3,15 @@ function title(pageTitle) {
     document.title = `${ pageTitle } | ${ mainTitle }`
 }
 
-function getDateFormatJSON(date){
+function getDateFormatJSON(date) {
     const dateArray = date.split('-').map(d => d.trim())
     return `${ dateArray[2] }/${ dateArray[1] }/${ dateArray[0] }`
 }
 
-function getFileNameFromURL(fileUrl){
+function getFileNameFromURL(fileUrl, fileExtension) {
     const urlSplit = fileUrl.split('/')
-    return urlSplit[urlSplit.length - 1]
+    const fileName = urlSplit[urlSplit.length - 1]
+    return fileName.endsWith(fileExtension) ? fileName : fileName + fileExtension
 }
 
 export { title, getDateFormatJSON, getFileNameFromURL }

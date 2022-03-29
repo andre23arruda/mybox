@@ -21,6 +21,26 @@ async function getApi(route, auth='') {
 }
 
 
+async function apiDownload(route, auth='') {
+    let response_status = 400
+    return fetch(
+        BASE_URL + route,
+        {
+            headers: new Headers({
+                Authorization: auth,
+            })
+        }
+    )
+    .then(response => {
+        response_status = response.status
+        return response.blob()
+    })
+    .then(blob => {
+        return {blob, response_status}
+    })
+}
+
+
 async function deleteApi(route, token='') {
     return fetch(
         BASE_URL + route,
@@ -96,6 +116,7 @@ async function googleLogin(accesstoken) {
 
 
 export {
+    apiDownload,
     getApi,
     deleteApi,
     postApi,
