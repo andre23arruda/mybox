@@ -21,8 +21,9 @@
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
-
-- [React.js](https://pt-br.reactjs.org/)
+- [Django](https://www.djangoproject.com/)
+- [Django-Rest-Framework](https://www.django-rest-framework.org/)
+- [React](https://reactjs.org)
 
 
 ## 💻 Projeto
@@ -31,19 +32,57 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## Instalação
 ### Pré requisitos
 Ter instalado:
+- [Python](https://www.python.org/downloads/)
 - [Node](https://nodejs.org/en/download/)
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/)
 
+
+## BACKEND
 ```sh
 # Clonar repositório
 git clone https://github.com/andre23arruda/mybox.git
 
-# Instalar os pacotes do projeto
-yarn install
+# Entrar na pasta dos arquivos do backend
+cd backend
+
+# Renomear env_example.py para env.py
+cp setup/env_example.py setup/env.py
+
+# Criar um ambiente virtual
+python -m venv venv
+
+# Ativar o ambiente virtual
+. activate.sh
+# ou . venv/Scripts/activate
+# ou ./venv/bin/activate
+
+# Instalar os pacotes necessários
+pip install -r requirements.txt
+
+# Executar as migrações
+python manage.py migrate
 
 # Run
-yarn dev
+. run.sh
 ```
+
+
+### Frontend
+#### No terminal, rodar
+```sh
+# Entrar na pasta dos arquivos do frontend
+cd frontend
+
+# Renomear .env_example para .env
+cp .env_example .env
+
+# Instalar os pacotes necessários
+yarn install
+
+# Rodar
+yarn start
+```
+
 
 ## Telas
 <div align="center">
