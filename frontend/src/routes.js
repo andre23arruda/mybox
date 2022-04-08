@@ -4,6 +4,7 @@ import { BrowserRouter, Redirect, Route } from 'react-router-dom'
 // pages
 import Login from './pages/Login'
 import Main from './pages/Main'
+import Page404 from './pages/Page404'
 
 
 function Routes(){
@@ -16,6 +17,8 @@ function Routes(){
             <Route exact path='/login' component={ Login } />
 
             <Route exact path='/my-files' component={ Main } />
+
+            <Route component={ Page404 } />
         </BrowserRouter>
     )
 }
