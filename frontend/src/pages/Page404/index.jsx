@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { title } from '../../utils/utils'
 
 // images and styles
-import './Page404.css'
+import './Page404.scss'
 
 
 function Page404() {
