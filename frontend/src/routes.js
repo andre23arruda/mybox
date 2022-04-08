@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Redirect, Route } from 'react-router-dom'
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 
 // pages
 import Login from './pages/Login'
@@ -10,15 +10,17 @@ import Page404 from './pages/Page404'
 function Routes(){
     return (
         <BrowserRouter>
-            <Route exact path="/">
-                <Redirect to="/my-files" />
-            </Route>
+            <Switch>
+                <Route exact path="/">
+                    <Redirect to="/my-files" />
+                </Route>
 
-            <Route exact path='/login' component={ Login } />
+                <Route exact path='/login' component={ Login } />
 
-            <Route exact path='/my-files' component={ Main } />
+                <Route exact path='/my-files' component={ Main } />
 
-            <Route component={ Page404 } />
+                <Route component={ Page404 } />
+            </Switch>
         </BrowserRouter>
     )
 }

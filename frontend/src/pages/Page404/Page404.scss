@@ -7,18 +7,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
 
-.container-404 .back-link:hover {
-    filter: brightness(0.9);
-}
+    h1 {
+        color: #6f6f6f;
+    }
 
-.container-404 .back-link {
-    text-decoration: none;
-    color: #ccc;
-    align-items: center;
-    transition: 0.2s;
-    font-size: 18pt;
-    margin-top: 50px;
-    display: flex;
+    .back-link {
+        text-decoration: none;
+        color: #b9b9b9;
+        align-items: center;
+        transition: 0.2s;
+        font-size: 18pt;
+        margin-top: 50px;
+        display: flex;
+
+        &:hover {
+            filter: brightness(0.9);
+        }
+    }
+
 }

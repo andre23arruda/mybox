@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // utils
-import { title } from '../../utils/utils'
+import { title } from '../../utils'
 
 // images and styles
 import './Page404.scss'
