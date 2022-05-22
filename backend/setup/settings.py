@@ -118,12 +118,14 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
     'DEFAULT_THROTTLE_RATES': {
         'user': '1000/day'
     }
 }
+REST_USE_JWT = True
 
 # CORS
 CORS_ORIGIN_ALLOW_ALL = False

@@ -28,7 +28,6 @@ class FilesViewSet(viewsets.ModelViewSet):
     '''API endpoint that allows Files to be viewed or edited.'''
     authentication_classes = [
         authentication.SessionAuthentication,
-        authentication.TokenAuthentication,
         JSONWebTokenAuthentication,
     ]
     http_method_names = ['get', 'post', 'delete']

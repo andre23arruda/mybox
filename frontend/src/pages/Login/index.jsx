@@ -24,9 +24,9 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false)
 
     async function responseGoogle(response) {
-        const data = await googleLogin(response.accessToken)
-        if (data.key) {
-            localStorage.setItem('token', `Token ${ data.key }`)
+        const { token } = await googleLogin(response.accessToken)
+        if (token) {
+            localStorage.setItem('token', `JWT ${ token }`)
             history.push('/my-files')
         } else {
             alert(`Erro no login. Tente novamente`)
